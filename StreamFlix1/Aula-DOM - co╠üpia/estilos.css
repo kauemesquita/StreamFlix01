@@ -1,0 +1,800 @@
+/* ========================================
+   ESTILOS GLOBAIS
+   Reset básico para remover espaçamentos padrão
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #e5e5e5;
+    background: #141414; /* Fundo escuro tipo Netflix */
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* ========================================
+   HEADER - Barra superior do site
+   ======================================== */
+
+header {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0));
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.logo h1 {
+    color: #e50914; /* Vermelho Netflix */
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #e5e5e5;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #e50914;
+}
+
+/* ========================================
+   CONTAINER PRINCIPAL
+   ======================================== */
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* ========================================
+   SEÇÕES DA AULA
+   ======================================== */
+
+.secao {
+    margin-bottom: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 30px;
+    border-left: 4px solid #e50914;
+}
+
+h2 {
+    color: #e50914;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.descricao {
+    color: #b3b3b3;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+/* ========================================
+   ÁREA DE DEMONSTRAÇÃO
+   ======================================== */
+
+.area-demo {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    padding: 25px;
+    margin: 20px 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   DEMO 1: CARDS DE FILMES
+   ======================================== */
+
+.filme-card {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto 20px auto;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.filme-card:hover {
+    border-color: #e50914;
+    transform: translateY(-5px);
+}
+
+.poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.filme-card h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.genero {
+    color: #e50914;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.info-filme {
+    color: #b3b3b3;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Mini catálogo (grid de filmes pequenos) */
+.mini-catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.filme-mini {
+    background: #2a2a2a;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.filme-mini:hover {
+    background: #3a3a3a;
+    transform: scale(1.05);
+}
+
+.poster-mini {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.filme-mini p {
+    color: #e5e5e5;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Classes de gênero */
+.genero-acao {
+    border: 2px solid #ff6b6b;
+}
+
+.genero-comedia {
+    border: 2px solid #ffd93d;
+}
+
+.genero-drama {
+    border: 2px solid #9b59b6;
+}
+
+/* ========================================
+   DEMO 2: CARD GRANDE (DESTAQUE)
+   ======================================== */
+
+.filme-card-grande {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-radius: 10px;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.poster-grande {
+    min-width: 250px;
+    max-width: 250px;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.info-destaque {
+    padding: 20px;
+    flex: 1;
+}
+
+.info-destaque h3 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.info-destaque p {
+    color: #b3b3b3;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Badge "Em Alta" */
+.badge {
+    display: inline-block;
+    background: #e50914;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Classe de destaque (será adicionada via JS) */
+.destaque {
+    border: 3px solid #e50914 !important;
+    box-shadow: 0 0 30px rgba(229, 9, 20, 0.6);
+    transform: scale(1.02);
+}
+
+/* ========================================
+   CONTROLES (BOTÕES)
+   ======================================== */
+
+.controles {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+button {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+button:hover {
+    background: #f40612;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   INPUTS
+   ======================================== */
+
+input[type="text"] {
+    background: #2a2a2a;
+    color: #e5e5e5;
+    padding: 12px 16px;
+    border: 2px solid #3a3a3a;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 300px;
+    max-width: 100%;
+    transition: all 0.3s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #e50914;
+    background: #1a1a1a;
+}
+
+input[type="text"]::placeholder {
+    color: #666;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.input-group input {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* ========================================
+   PAINEL DE CÓDIGO (substituiu o resultado de texto)
+   ======================================== */
+
+.resultado {
+    background: #0d1117;
+    border-radius: 8px;
+    margin-top: 20px;
+    overflow: hidden;
+    border: 1px solid #30363d;
+    min-height: 60px;
+}
+
+.pc-aguardando {
+    display: block;
+    color: #8b949e;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.95rem;
+    padding: 20px;
+    text-align: center;
+}
+
+.pc-header {
+    background: #161b22;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #30363d;
+}
+
+.pc-titulo {
+    color: #8b949e;
+    font-size: 0.85rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.pc-metodo {
+    background: #e50914;
+    color: white;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.pc-body {
+    padding: 16px;
+    font-family: 'Courier New', monospace;
+}
+
+.pc-codigo {
+    margin-bottom: 14px;
+}
+
+.pc-linha {
+    display: block;
+    color: #79c0ff;
+    font-size: 0.92rem;
+    line-height: 2;
+}
+
+.pc-linha .kw  { color: #ff7b72; }
+.pc-linha .str { color: #a5d6ff; }
+.pc-linha .fn  { color: #d2a8ff; }
+.pc-linha .cm  { color: #8b949e; font-style: italic; }
+.pc-linha .nb  { color: #ffa657; }
+
+.pc-separador {
+    border: none;
+    border-top: 1px solid #30363d;
+    margin: 12px 0;
+}
+
+.pc-resultado {
+    color: #3fb950;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.pc-explicacao {
+    color: #e5e5e5;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.pc-dica {
+    color: #ffd700;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.88rem;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: rgba(255, 215, 0, 0.08);
+    border-radius: 6px;
+    border-left: 3px solid #ffd700;
+}
+
+/* ========================================
+   DEMO 3: MINHA LISTA
+   ======================================== */
+
+#minha-lista {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#minha-lista li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px;
+    background: #2a2a2a;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-left: 4px solid #e50914;
+    transition: all 0.3s;
+}
+
+#minha-lista li:hover {
+    background: #3a3a3a;
+    transform: translateX(5px);
+}
+
+#minha-lista li span {
+    flex: 1;
+    color: #e5e5e5;
+    font-size: 1.1rem;
+}
+
+#minha-lista li button {
+    background: #dc2626;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    min-width: 80px;
+}
+
+#minha-lista li button:hover {
+    background: #b91c1c;
+}
+
+/* ========================================
+   DEMO 4: CARDS INTERATIVOS
+   ======================================== */
+
+.card-interativo {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 2px solid #2a2a2a;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.card-interativo:hover {
+    border-color: #e50914;
+}
+
+.poster-interativo {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: block;
+    transition: all 0.3s;
+}
+
+.card-interativo:hover .poster-interativo {
+    transform: scale(1.05);
+}
+
+.card-interativo h4 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.instrucao {
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.status {
+    color: #4ade80;
+    font-weight: bold;
+    font-size: 1rem;
+    min-height: 24px;
+}
+
+/* Busca interativa */
+.busca-interativa {
+    background: #2a2a2a;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.busca-interativa input {
+    width: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.contador {
+    color: #e50914;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+    background: #0a0a0a;
+    color: #666;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+    border-top: 1px solid #1a1a1a;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* ========================================
+   RESPONSIVO
+   ======================================== */
+
+/* ========================================
+   ANIMAÇÕES DE HIGHLIGHT (SELEÇÃO)
+   ======================================== */
+
+@keyframes pulso-amarelo {
+    0%   { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.8); }
+    70%  { box-shadow: 0 0 0 14px rgba(255, 215, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+@keyframes pulso-vermelho {
+    0%   { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.8); }
+    70%  { box-shadow: 0 0 0 14px rgba(255, 107, 107, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+}
+
+@keyframes pulso-roxo {
+    0%   { box-shadow: 0 0 0 0 rgba(155, 89, 182, 0.8); }
+    70%  { box-shadow: 0 0 0 14px rgba(155, 89, 182, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(155, 89, 182, 0); }
+}
+
+.elemento-selecionado {
+    outline: 3px solid #ffd700 !important;
+    outline-offset: 4px;
+    animation: pulso-amarelo 0.8s ease-out 3;
+}
+
+.highlight-acao {
+    outline: 3px solid #ff6b6b !important;
+    outline-offset: 4px;
+    animation: pulso-vermelho 0.8s ease-out 3;
+}
+
+.highlight-drama {
+    outline: 3px solid #9b59b6 !important;
+    outline-offset: 4px;
+    animation: pulso-roxo 0.8s ease-out 3;
+}
+
+/* ========================================
+   ANIMAÇÕES DE MANIPULAÇÃO
+   ======================================== */
+
+@keyframes badge-pop {
+    0%   { transform: scale(0) rotate(-10deg); opacity: 0; }
+    70%  { transform: scale(1.3) rotate(3deg); }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+.badge {
+    display: inline-block;
+    background: #e50914;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 10px;
+    animation: badge-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes fade-poster {
+    0%   { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.poster-fade-in {
+    animation: fade-poster 0.5s ease-out;
+}
+
+@keyframes texto-pisca {
+    0%, 100% { color: #fff; }
+    30%       { color: #e50914; }
+    60%       { color: #ffd700; }
+}
+
+.texto-animado {
+    animation: texto-pisca 0.6s ease-in-out 2;
+}
+
+@keyframes slide-in-lista {
+    from { opacity: 0; transform: translateX(-20px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.item-novo {
+    animation: slide-in-lista 0.3s ease-out;
+}
+
+/* ========================================
+   BOTÃO RESETAR
+   ======================================== */
+
+.btn-resetar {
+    background: transparent !important;
+    color: #8b949e !important;
+    border: 2px solid #30363d !important;
+    padding: 10px 20px !important;
+    font-size: 0.9rem !important;
+}
+
+.btn-resetar:hover {
+    border-color: #e50914 !important;
+    color: #e50914 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* ========================================
+   DEMO 4: GRID DE CARDS INTERATIVOS
+   ======================================== */
+
+.grid-interativo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   DEMO 5: GALERIA E FILTRO
+   ======================================== */
+
+.galeria-filmes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.card-galeria {
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.card-galeria:hover {
+    border-color: #e50914;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(229, 9, 20, 0.3);
+}
+
+.card-galeria.oculto {
+    display: none;
+}
+
+.card-galeria img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-galeria .card-nome {
+    padding: 8px 10px 2px;
+    color: #e5e5e5;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.card-galeria .card-tipo {
+    padding: 2px 10px 8px;
+    font-size: 0.73rem;
+    color: #e50914;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ========================================
+   RESPONSIVO
+   ======================================== */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .filme-card-grande {
+        flex-direction: column;
+    }
+
+    .poster-grande {
+        min-width: 100%;
+        min-height: 200px;
+    }
+
+    .controles {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+
+    .mini-catalogo {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-interativo {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-filmes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

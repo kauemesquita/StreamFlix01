@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamFlix - Aula de DOM JavaScript</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <!-- ========================================
+         HEADER DO SITE
+         ======================================== -->
+    <header>
+        <div class="logo">
+            <h1>🎬 StreamFlix</h1>
+        </div>
+        <nav>
+            <a href="#" class="nav-link">Início</a>
+            <a href="#" class="nav-link">Séries</a>
+            <a href="#" class="nav-link">Filmes</a>
+            <a href="#" class="nav-link">Minha Lista</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <!-- ========================================
+             DEMO 1: SELEÇÃO DE ELEMENTOS
+             ======================================== -->
+        <section class="secao">
+            <h2>📍 Demo 1: Selecionando Elementos</h2>
+            <p class="descricao">Aprenda a selecionar elementos da página usando diferentes métodos do DOM</p>
+            
+            <div class="area-demo">
+                <!-- Filme principal para selecionar -->
+                <div class="filme-card" id="filme-principal">
+                    <img class="poster" src="https://image.tmdb.org/t/p/w500/twfKp60THrcOIep9sjHODOOfO8d.jpg" alt="Stranger Things">
+                    <h3 id="titulo-filme">Stranger Things</h3>
+                    <p class="genero">Ficção Científica</p>
+                    <p class="info-filme">Quando um garoto desaparece, uma pequena cidade descobre um mistério envolvendo experiências secretas.</p>
+                </div>
+
+                <!-- Lista de filmes por classe -->
+                <div class="mini-catalogo">
+                    <div class="filme-mini genero-acao">
+                        <img class="poster-mini" src="https://image.tmdb.org/t/p/w500/ztkUQFLlC19CCMYHW9o1zWhJRNq.jpg" alt="Breaking Bad">
+                        <p>Breaking Bad</p>
+                    </div>
+                    <div class="filme-mini genero-drama">
+                        <img class="poster-mini" src="https://image.tmdb.org/t/p/w500/i0uajcHH9yogXMfDHpOXexIukG9.jpg" alt="Peaky Blinders">
+                        <p>Peaky Blinders</p>
+                    </div>
+                    <div class="filme-mini genero-acao">
+                        <img class="poster-mini" src="https://image.tmdb.org/t/p/w500/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg" alt="Round 6">
+                        <p>Round 6</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controles">
+                <button onclick="selecionarPorId()">📌 Selecionar por ID</button>
+                <button onclick="selecionarPorClasse()">🎯 Selecionar por Classe</button>
+                <button onclick="selecionarPorQuery()">🔍 Query Selector</button>
+                <button onclick="selecionarTodos()">📦 Selecionar Todos</button>
+            </div>
+
+            <div class="resultado" id="resultado-demo1"><span class="pc-aguardando">Clique nos botões acima — o elemento vai brilhar na tela e o código vai aparecer aqui</span></div>
+        </section>
+
+        <!-- ========================================
+             DEMO 2: MANIPULAÇÃO DE ELEMENTOS
+             ======================================== -->
+        <section class="secao">
+            <h2>✏️ Demo 2: Manipulando Elementos</h2>
+            <p class="descricao">Aprenda a modificar conteúdo, estilos e classes dos elementos</p>
+            
+            <div class="area-demo">
+                <div class="filme-card-grande" id="filme-destaque">
+                    <img class="poster-grande" id="poster-destaque" src="https://image.tmdb.org/t/p/w500/7vjaCdMw15FEbXyLQTVa04URsPm.jpg" alt="The Witcher">
+                    <div class="info-destaque">
+                        <h3 id="titulo-destaque">The Witcher</h3>
+                        <p id="sinopse-destaque">Geralt de Rívia, um caçador de monstros solitário, luta para encontrar seu lugar em um mundo onde as pessoas são mais perversas que bestas.</p>
+                        <div id="badge-container"></div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="input-busca" placeholder="Digite um novo título...">
+                </div>
+            </div>
+
+            <div class="controles">
+                <button onclick="mudarTexto()">📝 Mudar Título</button>
+                <button onclick="adicionarBadge()">⭐ Adicionar "Em Alta"</button>
+                <button onclick="mudarPoster()">🖼️ Mudar Poster</button>
+                <button onclick="adicionarDestaque()">✨ Destacar Card</button>
+                <button onclick="lerInput()">🔍 Ler Input</button>
+                <button class="btn-resetar" onclick="resetarDemo2()">🔄 Resetar</button>
+            </div>
+
+            <div class="resultado" id="resultado-demo2"><span class="pc-aguardando">Clique nos botões para manipular o card — veja as mudanças acontecendo ao vivo</span></div>
+        </section>
+
+        <!-- ========================================
+             DEMO 3: MINHA LISTA (TODO LIST)
+             ======================================== -->
+        <section class="secao">
+            <h2>📝 Demo 3: Minha Lista de Filmes</h2>
+            <p class="descricao">Crie uma lista dinâmica de filmes que você quer assistir</p>
+            
+            <div class="area-demo">
+                <div class="input-group">
+                    <input type="text" id="input-filme" placeholder="Digite o nome do filme...">
+                    <button onclick="adicionarFilme()">➕ Adicionar à Lista</button>
+                </div>
+
+                <ul id="minha-lista"></ul>
+            </div>
+
+            <div class="resultado" id="resultado-demo3"><span class="pc-aguardando">Adicione um filme à lista para ver o código em ação</span></div>
+        </section>
+
+        <!-- ========================================
+             DEMO 4: EVENTOS INTERATIVOS
+             ======================================== -->
+        <section class="secao">
+            <h2>🎮 Demo 4: Eventos do JavaScript</h2>
+            <p class="descricao">Interaja com os cards usando diferentes tipos de eventos</p>
+            
+            <div class="area-demo">
+                <div class="grid-interativo">
+                    <!-- Card Interativo 1: Click simples -->
+                    <div class="card-interativo" id="card-favorito">
+                        <img class="poster-interativo" src="https://image.tmdb.org/t/p/w500/MoEKaPFHABtA1xKoOteirGaHl1.jpg" alt="La Casa de Papel">
+                        <h4>La Casa de Papel</h4>
+                        <p class="instrucao">👆 Clique para favoritar</p>
+                        <p class="status" id="status-favorito"></p>
+                    </div>
+
+                    <!-- Card Interativo 2: Double Click -->
+                    <div class="card-interativo" id="card-detalhes">
+                        <img class="poster-interativo" src="https://image.tmdb.org/t/p/w500/ztkUQFLlC19CCMYHW9o1zWhJRNq.jpg" alt="Breaking Bad">
+                        <h4>Breaking Bad</h4>
+                        <p class="instrucao">👆👆 Clique 2x para detalhes</p>
+                        <p class="status" id="status-detalhes"></p>
+                    </div>
+
+                    <!-- Card Interativo 3: Hover -->
+                    <div class="card-interativo" id="card-hover">
+                        <img class="poster-interativo" src="https://image.tmdb.org/t/p/w500/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg" alt="Round 6">
+                        <h4>Round 6</h4>
+                        <p class="instrucao">👉 Passe o mouse aqui</p>
+                        <p class="status" id="status-hover">Aguardando...</p>
+                    </div>
+                </div>
+
+                <!-- Input Interativo: Busca em tempo real -->
+                <div class="busca-interativa">
+                    <input type="text" id="input-busca-tempo-real" placeholder="🔍 Busque um filme...">
+                    <p class="contador" id="contador-digitacao">Você digitou: 0 caracteres</p>
+                </div>
+            </div>
+
+            <div class="resultado" id="resultado-demo4"><span class="pc-aguardando">Interaja com os cards acima — clique, clique 2x ou passe o mouse</span></div>
+        </section>
+
+        <!-- ========================================
+             DEMO 5: FILTRO EM TEMPO REAL
+             ======================================== -->
+        <section class="secao">
+            <h2>🔍 Demo 5: Filtro em Tempo Real</h2>
+            <p class="descricao">Filtre filmes e séries enquanto digita — veja o DOM sendo manipulado a cada letra</p>
+
+            <div class="area-demo">
+                <div class="input-group">
+                    <input type="text" id="input-filtro" placeholder="🔍 Digite para filtrar filmes e séries...">
+                </div>
+                <div class="galeria-filmes" id="galeria-filmes">
+                    <!-- Cards criados dinamicamente pelo JavaScript -->
+                </div>
+                <p id="sem-resultado" style="display:none; color:#8b949e; text-align:center; padding:30px; font-size:1.1rem;">
+                    🎬 Nenhum resultado encontrado
+                </p>
+            </div>
+
+            <div class="resultado" id="resultado-demo5"><span class="pc-aguardando">Digite algo no campo acima para ver o filtro em ação</span></div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>🎓 Aula de DOM JavaScript - StreamFlix © 2024</p>
+        <p>Material didático para aprendizado de manipulação do DOM</p>
+    </footer>
+
+    <!--
+        PROFESSOR: este arquivo está carregando o roteiro completo.
+        Para os alunos trabalharem, troque para: script.js
+    -->
+    <script src="roteiro-professor.js"></script>
+</body>
+</html>
